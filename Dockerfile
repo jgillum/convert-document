@@ -36,6 +36,8 @@ USER app
 HEALTHCHECK --interval=10s --timeout=10s --retries=100 \
     CMD curl -f http://localhost:80/health/live || exit 1
 
+EXPOSE 80
+
 CMD ["gunicorn", \
     "-w", "4", \
     "--bind", "0.0.0.0:80", \
